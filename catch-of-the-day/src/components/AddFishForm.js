@@ -10,16 +10,19 @@ class AddFishForm extends React.Component {
     createFish = event => {
         event.preventDefault();
 
+        //capture all values from the form and create fish object
         const fish = {
-            fishName: this.nameRef.current.value,
-            fishPrice: parseFloat(this.priceRef.current.value), 
-            fishStatus: this.statusRef.current.value,
-            fishDesc: this.descRef.current.value,
-            fishImage: this.imageRef.current.value
+            name: this.nameRef.current.value,
+            price: parseFloat(this.priceRef.current.value), 
+            status: this.statusRef.current.value,
+            desc: this.descRef.current.value,
+            image: this.imageRef.current.value
         };
 
+        //adding fish to state
         this.props.addFish(fish);
 
+        //refresh form after adding fish to state
         event.currentTarget.reset(); 
     };
 
